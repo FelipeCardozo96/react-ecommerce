@@ -7,7 +7,7 @@ const index = () => {
     const activeStyle = 'underline underline-offset-4'
     const context = useContext(ShoppingCartContext)
     return (
-        <nav className='flex justify-between items-center fixed z-10 w-full py-5 px-8 text-sm font-light top-0'>
+        <nav className='flex justify-between items-center fixed z-10 w-full py-5 px-8 text-sm font-light top-0 bg-white bg-opacity-95'>
             <ul className='flex items-center gap-3'>
                 <li className='font-semibold text-lg'>
                     <NavLink to='/'>
@@ -47,7 +47,7 @@ const index = () => {
                 <li>
                     <NavLink
                         to='/furnitures'
-                        onClick={() => context.setSearchByCategory('furnitures')}
+                        onClick={() => context.setSearchByCategory('furniture')}
                         className={({ isActive }) =>
                             isActive ? activeStyle : undefined
                         }>
@@ -106,8 +106,9 @@ const index = () => {
                         Sign In
                     </NavLink>
                 </li>
-                <li className='flex flex-row gap-1'>
-                <ShoppingCartIcon className='w-6 h-6'/> {context.count}
+                <li className='flex items-center'>
+                <ShoppingCartIcon className='w-6 h-6 text-black'/>
+                <div>{context.cartProducts.length}</div>
                 </li>
             </ul>
         </nav>
